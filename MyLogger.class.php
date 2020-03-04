@@ -3,6 +3,11 @@ class MyLogger
 {
     public $origin;
 
+    public function __construct($origin)
+    {
+        $this->origin = $origin;
+    }
+
     public function setOrigin($origin)
     {
         $this->origin = $origin;
@@ -52,7 +57,10 @@ class MyLogger
     }
 }
 
-$logger = new MyLogger();
-$logger->setOrigin("origin test");
+$logger = new MyLogger("Eerste Logger Class");
 $logger->log("log message", "INFO");
 $logger->warning("warning message");
+
+$logger2 = new MyLogger("Tweede Logger Class");
+$logger2->log("debug message", "DEBUG");
+$logger2->error("er is geen error :)");
